@@ -2,11 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { CreateOrderDetailDto } from './dto/create-order-detail.dto';
 import { UpdateOrderDetailDto } from './dto/update-order-detail.dto';
 import { OrderDetail } from './entities/order-detail.entity';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class OrderDetailsService {
+  constructor(
+    @InjectRepository(OrderDetail)
+    private readonly orderDetailRepository: Repository<OrderDetail>,
+  ) {}
+
   create(createOrderDetailDto: CreateOrderDetailDto) {
-    return 'This action adds a new orderDetail';
+    return this.orderDetailRepository.save(createOrderDetailDto);
   }
 
   findAll() {

@@ -10,6 +10,7 @@ import {
 import { OrdersService } from './orders.service';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
+import { ResponseFindByUserDto } from './dto/response-order-find-by-user.dto';
 
 @Controller('orders')
 export class OrdersController {
@@ -38,5 +39,11 @@ export class OrdersController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.ordersService.remove(+id);
+  }
+
+  @Get('/user/:id')
+  async findOneByUser(@Param('id') id: string) {
+    const response = await this.ordersService.findByUser(id);
+    // return new ResponseFindByUserDto(response.orders, response.user);
   }
 }

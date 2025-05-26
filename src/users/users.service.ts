@@ -5,6 +5,9 @@ import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class UsersService {
+  findOneBy(id: string) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private usersRepository: UsersRepository) {}
 
   async findAll(page: number, limit: number) {

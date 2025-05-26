@@ -64,6 +64,9 @@ export class OrdersService {
     );
     return orderDetail;
   }
+  async findByUser(id: string) {
+    const user = await this.userService.findOneBy(id);
+  }
 
   update(id: number, updateOrderDto: UpdateOrderDto) {
     return `This action updates a #${id} order`;

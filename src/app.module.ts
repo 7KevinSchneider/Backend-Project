@@ -10,6 +10,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoriesModule } from './categories/categories.module';
 import { OrdersModule } from './orders/orders.module';
 import { OrderDetailsModule } from './order-details/order-details.module';
+import { SeedsModule } from './seeds/seeds.module';
 
 @Module({
   imports: [
@@ -28,14 +29,12 @@ import { OrderDetailsModule } from './order-details/order-details.module';
     CategoriesModule,
     OrdersModule,
     OrderDetailsModule,
+    SeedsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
 
-// Orders comentado
-// order-details comentado
-// E importacion en el app module
-// seeds comentado
-// tambien seeds en main.ts del src
+// Parte de la logica de users y order falta por hacer
+// ! Order service y user service

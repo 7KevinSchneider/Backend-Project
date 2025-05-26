@@ -11,7 +11,6 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { UsersService } from './users.service';
-import { IUser } from './user.interface';
 import { AuthGuard } from 'src/guard/auth/auth.guard';
 import { CreateUserDto } from './dto/create-user.dto';
 
